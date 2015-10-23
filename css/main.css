@@ -1,0 +1,20 @@
+.newPostContainer,.mainContainer{
+    width: 80%;
+    margin: 0 auto;
+    
+}
+
+#jumboText{
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*Prevents Horizontal Scroll*/
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#postline{
+    border-bottom: 1px solid white;
+}
