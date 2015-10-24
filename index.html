@@ -17,8 +17,8 @@
             <div class="container-fluid">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">Profile</a></li>
-                    <li role="presentation"><a href="#">Messages</a></li>
+                    <!-- <li role="presentation"><a href="#">Profile</a></li>
+                    <li role="presentation"><a href="#">Messages</a></li> -->
                 </ul>
 
 
@@ -41,7 +41,7 @@
                 <h1><span class="glyphicon glyphicon-book"></span></h1>
                 <h1>Reddit's Neighbor</h1>
                 <p>A place to leave what you have to say</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-pencil"></span>Leave a post</a></p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button" id="leavePostBtn" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon pencil glyphicon-pencil"></span>Leave a post</a></p>
             </div>
         </div>
     </div>
@@ -51,7 +51,9 @@
     <div class="mainContainer">
         <div class="row">
             <div class="page-header">
-                <h1>Posts<span class="glyphicon glyphicon-arrow-down"></span></h1>
+
+                <h1>Posts  <span class="glyphicon  glyphicon-arrow-down"></span></h1>
+
             </div>
         </div>
 
@@ -60,13 +62,13 @@
             <div class="col-sm-6" "col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title" id="postTitle"><span class="glyphicon glyphicon-menu-right"></span>Panel title</h3>
+                        <h3 class="panel-title" id="postTitle"><span class="glyphicon glyphicon-menu-right titleArrow"></span>Panel title</h3>
                     </div>
                     <div class="panel-body" id="postId">
                         Panel content
                     </div>
-                    <div class="panel-footer" id="postAuthor">Author: <span></span></div>
-                    <div class="panel-footer" id="postDate">Date: <span></span></div>
+                    <div class="panel-footer" id=" postAuthor">Author: <span></span></div>
+                    <div class="panel-footer" id="dateBorder" id="postDate">Date: <span></span></div>
                 </div>
             </div>
         </div>
@@ -85,44 +87,88 @@
                         <div class="newPostContainer">
                             <form class="form-horizontal">
                                 <fieldset>
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-lg-2 control-label">Post Title</label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="InputFirstName" placeholder="Enter your Title">
 
+                                    <!--                    Group 1                -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="inputTitle" class="col-lg-2 modal-text control-label">Post Title</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" class="form-control" required id="InputFirstName" placeholder="Enter your Title">
+                                                <small class="req">*required</small>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="textArea" class="col-lg-2 modal-text control-label">Your Post </label>
+                                            <div class="col-lg-10">
+                                                <textarea class="form-control" rows="3" id="textArea" required placeholder="A nice yak shaving story goes here..."></textarea>
+                                                <small class="req">*required</small>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="textArea" class="col-lg-2 control-label">Your Post </label>
-                                        <div class="col-lg-10">
-                                            <textarea class="form-control" rows="3" id="textArea" placeholder="A nice yak shaving story goes here..."></textarea>
+                                    <!--Keep Sepeartion Looking Good-->
+                                    <div class="col-md-12 author-col">
+                                        <div class="author-row">
+                                            <div class="form-group">
+                                                <div id="authorTitle">
+                                                    <h4 class="modal-text">Author Name:</h4>
+                                                </div>
+                                                <div class="col-md-4">
+
+                                                    <input type="text" class="form-control" required id="InputAuthorFirstName" placeholder="First Name">
+                                                    <small class="req">*required</small>
+                                                </div>
+
+
+
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" required id="InputAuthorLastName" placeholder="Last Name">
+                                                    <small class="req">*required</small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-<!--Keep Sepeartion Looking Good-->
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-lg-2 control-label">Author First Name:</label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="InputAuthorFirstName" placeholder="Your First Name">
+                                    
+<!--                                  Second Row Captcha  -->
+                                     <div class="col-md-12 author-col">
+                                        <div class="author-row">
+                                            <div class="form-group">
+                                                <div id="authorTitle">
+                                                    <h4 class="modal-text">Verify you're human:</h4>
+                                                </div>
+                                                <div class="col-md-2">
 
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-lg-2 control-label">Author Last Name:</label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="InputAuthorLastName" placeholder="Your Last Name">
+                                                   <h4>22 + 11 = </h4>
+                                                </div>
 
+                                                <div class="col-md-2" id="capAns">
+                                                    <input type="text" class="form-control" required id="InputCaptchaAns" placeholder="??">
+                                                    <small class="req">*required</small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                 </fieldset>
                             </form>
+                          
+
                         </div>
 
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+
+                        <div class="form-group">
+                           
+                               
+                               
+                       
+               
+                  
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Submit Post</button>
+                        </div>
 
 
                     </div>

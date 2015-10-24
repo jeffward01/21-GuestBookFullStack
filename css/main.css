@@ -18,3 +18,63 @@ html, body {
 #postline{
     border-bottom: 1px solid white;
 }
+.modal-text{
+    color: darkcyan;
+}
+
+.author-row input{
+   width: 200px;
+}
+.author-col{
+    margin-top: 25px;
+}
+#authorTitle{
+    margin-bottom: 20px;
+}
+.req{
+    color: lightcoral;
+    font-style: italic;
+}
+#leavePostBtn{
+    margin-top: 30px;
+}
+
+.jumbotron{
+    height: 420px;
+}
+
+.pencil{
+    margin-right: 5px;
+}
+.titleArrow{
+    margin-right: 5px;
+}
+.postArrow{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+#postId{
+    border-bottom: 2px solid black;
+}
+#dateBorder{
+    border-top: 2px solid black;
+}
+#captchaAns{
+    width: 50px;
+}
+.center{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#captcha{
+    margin-top: 10px;
+}
+
+#InputCaptchaAns{
+    width: 50px;
+}
+
+#capAns{
+    margin-left: -30px;
+}
