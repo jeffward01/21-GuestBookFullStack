@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Guestbook</title>
+    <!-- build:css -->
+      <link href="bower_modules/components-bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+      <link rel="stylesheet" href="../bower_components/toastr/toastr.css">
+      <link rel="stylesheet" href="../bower_components/animate.css/animate.css">
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link href="css/styles.css" rel="stylesheet">
+    <!-- endbuild -->
+      
+      
+      
+      
+    <!-- build:js -->
+      <script src="app/require.config.js"></script>
+      <script data-main="app/startup" src="bower_modules/requirejs/require.js"></script>
+      <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="../bower_components/knockout/dist/knockout.js"></script>
+      <script src="../bower_components/knockout-validation/dist/knockout.validation.min.js"></script>
+      <script src="../bower_components/knockout-mapping/knockout.mapping.js"></script>
+      <script src="bower_modules/crossroads/dist/crossroads.min.js"></script>
+      <script src="../bower_components/toastr/toastr.js"></script>
+      <script src="bower_modules/crossroads/dist/crossroads.min.js"></script>
+      <script src="bower_modules/hasher/dist/js/hasher.min.js"></script>
+      <script src="bower_modules/js-signals/dist/signals.min.js"></script>
+      <script src="bower_modules/knockout-projections/dist/knockout-projections.min.js"></script>
+      <script src="bower_modules/requirejs-text/text.js"></script>
+      
+    <!-- endbuild -->
+  </head>
+  <body>
+    <nav-bar params="route: route"></nav-bar>
+    <div id="page" class="container" data-bind="component: { name: route().page, params: route }"></div>
+  </body>
+</html>

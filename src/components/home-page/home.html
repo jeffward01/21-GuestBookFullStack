@@ -1,0 +1,47 @@
+<h2>Home</h2>
+
+<p data-bind='text: message'></p>
+
+<button data-bind='click: doSomething'>Click me</button>
+
+
+    <!--   'JumboTron' -->
+
+    <div class="row">
+        <div class="jumbotron">
+            <div id="jumboText" class="container">
+                <h1><span class="glyphicon glyphicon-book"></span></h1>
+                <h1>Reddit's Neighbor</h1>
+                <p>A place to leave what you have to say</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button" id="leavePostBtn" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon pencil glyphicon-pencil"></span>Leave a post</a></p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#LoginModal" id="loginTwitterBtn"><span class="glyphicon-cloud-upload glyphicon"></span> Login</a></p>
+            </div>
+        </div>
+    </div>
+
+
+<!--      Main Header Area (Posts)  -->
+    <div class="mainContainer">
+        <div class="row">
+            <div class="page-header">
+
+                <h1>Posts  <span class="glyphicon  glyphicon-arrow-down"></span></h1>
+
+            </div>
+        </div>
+
+        <!--  Display Posts Area (Grid)-->
+        <div class="row">
+            <div class="col-sm-6" "col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="postTitle"><span class="glyphicon glyphicon-menu-right titleArrow"></span>Panel title</h3>
+                    </div>
+                    <div class="panel-body" id="postId">
+                        Panel content
+                    </div>
+                    <div class="panel-footer" id=" postUsername">Username: <span></span></div>
+                    <div class="panel-footer" id="dateBorder" id="postDate">Date: <span></span></div>
+                </div>
+            </div>
+        </div>

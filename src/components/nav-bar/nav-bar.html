@@ -1,0 +1,20 @@
+<!--
+  The navigation UI that is docked to the top of the window. Most of this markup simply
+  follows Bootstrap conventions. The only Knockout-specific parts are the data-bind
+  attributes on the <li> elements.
+-->
+
+
+  <!--  Main Nav  -->
+    <div class="row">
+        <nav class="navbar navbar-primary navbar-fixed-top">
+            <div class="container-fluid">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
+                     <li role="presentation"><a href="#" data-toggle="modal" data-target="#linkTwitterModal"><span class="glyphicon glyphicon-refresh"></span> Link your Twitter</a></li>
+                </ul>
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
