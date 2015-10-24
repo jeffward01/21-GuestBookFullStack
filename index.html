@@ -111,34 +111,59 @@
                                         <div class="author-row">
                                             <div class="form-group">
                                                 <div id="authorTitle">
-                                                    <h4 class="modal-text">Author Name:</h4>
+                                                    <h4 class="modal-text">Phone Verification: </h4>
+                                                     <small><p>A 5-Digit Code will be given to you by phone or SMS</p></small>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-12">
+                                                    <div class="row col-md-12">
+                                                        <div class="col-md-4">
+                                                            <h5 for="textArea" class=" modal-text control-label">Your Phone Number </h5>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" required id="InputPhoneNumber" placeholder="XXX-XXX-XXXX">
+                                                            <small class="req">*required</small>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="row col-md-12 btnVerify">
+                                                        <div class="col-md-3">
+                                                            <button type="button" class="btn btn-primary">Verify by Phone</button>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <button type="button" class="btn btn-primary">Verify by SMS</button>
+                                                        </div>
+                                                    </div>
 
-                                                    <input type="text" class="form-control" required id="InputAuthorFirstName" placeholder="First Name">
-                                                    <small class="req">*required</small>
+                                                    <div class="row col-md-12">
+                                                        <div class="col-md-4">
+                                                            <h5 for="verificationCode" class=" modal-text control-label">Verification Code: </h5>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" required id="InputVerifyCode" placeholder="?????">
+                                                            <small class="req">*required</small>
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
 
 
 
-                                                <div class="col-md-4">
-                                                    <input type="text" class="form-control" required id="InputAuthorLastName" placeholder="Last Name">
-                                                    <small class="req">*required</small>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
-                                    
-<!--                                  Second Row Captcha  -->
-                                     <div class="col-md-12 author-col">
+
+                                    <!--                                  Second Row Captcha  -->
+                                    <div class="col-md-12 author-col">
                                         <div class="author-row">
                                             <div class="form-group">
                                                 <div id="authorTitle">
-                                                    <h4 class="modal-text">Verify you're human:</h4>
+                                                    <h4 class="modal-text">Verify you're human (again please):</h4>
                                                 </div>
                                                 <div class="col-md-2">
 
-                                                   <h4>22 + 11 = </h4>
+                                                    <h4>22 + 11 = </h4>
                                                 </div>
 
                                                 <div class="col-md-2" id="capAns">
@@ -149,9 +174,12 @@
                                         </div>
                                     </div>
 
+                                    <!--                      Third Captcha     -->
+
+
                                 </fieldset>
                             </form>
-                          
+
 
                         </div>
 
@@ -160,12 +188,12 @@
                     <div class="modal-footer">
 
                         <div class="form-group">
-                           
-                               
-                               
-                       
-               
-                  
+
+
+
+
+
+
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Submit Post</button>
                         </div>
