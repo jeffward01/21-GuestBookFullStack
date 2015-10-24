@@ -23,7 +23,7 @@
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
                     <li role="presentation"><a href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
-                    <!--  <li role="presentation"><a href="#">Messages</a></li> -->
+                     <li role="presentation"><a href="#" data-toggle="modal" data-target="#linkTwitterModal"><span class="glyphicon glyphicon-refresh"></span> Link your Twitter</a></li>
                 </ul>
             </div>
             <!-- /.container-fluid -->
@@ -176,7 +176,7 @@
                 <!--             Header   -->
                 <div class="page-header">
                     <h1>Create an Account <small> Join the party </small></h1>
-                    <br><small class="pull-right">If you have an account click here</small>
+                    <br><a href="#"><small class="pull-right">If you have an account click here to login</small></a>
                 </div>
             </div>
 
@@ -366,9 +366,40 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">Login</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!--        Sync Twitter Modal    -->
+            <!-- Modal -->
+            <div class="modal fade" id="linkTwitterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title center" id="myModalLabel">Link your Twitter Account</h4>
+                        </div>
+                        <div class="modal-body">
+                         
+                            <!--         Enter 'Twitter' Account           -->
+                            <div class="form-group Link-twitter">
+                                <label for="inputTitle" class="col-lg-4 modal-text control-label">Link your Twitter</label>
+                                <div class="col-lg-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1">@</span>
+                                        <input type="text" class="form-control" id="addTwitterUsername" placeholder="Twitter Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                          
+                            <button type="button" class="btn btn-primary">Link Twitter!</button>
+                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -377,8 +408,7 @@
 
 
 
-
-
+<!-- End HTML -->
         </div>
     </div>
 
