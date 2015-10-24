@@ -22,8 +22,8 @@
             <div class="container-fluid">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation" ><a href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
-                     <li role="presentation"><a href="#" data-toggle="modal" data-target="#linkTwitterModal"><span class="glyphicon glyphicon-refresh"></span> Link your Twitter</a></li>
+                    <li role="presentation"><a class="AddAccountBtn" href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
+                    <li class="LinkTwitterBtn" role="presentation"><a href="#" data-toggle="modal" data-target="#linkTwitterModal"><span class="glyphicon glyphicon-refresh"></span> Link your Twitter</a></li>
                 </ul>
             </div>
             <!-- /.container-fluid -->
@@ -42,7 +42,7 @@
                 <h1><span class="glyphicon glyphicon-book"></span></h1>
                 <h1>Reddit's Neighbor</h1>
                 <p>A place to leave what you have to say</p>
-                <p ><a class="btn btn-primary btn-lg" href="#" role="button" id="leavePostBtn" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon pencil glyphicon-pencil"></span>Leave a post</a></p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button" id="leavePostBtn" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon pencil glyphicon-pencil"></span>Leave a post</a></p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#LoginModal" id="loginTwitterBtn"><span class="glyphicon-cloud-upload glyphicon"></span> Login</a></p>
             </div>
         </div>
@@ -51,29 +51,33 @@
 
     <!--      Main Header Area (Posts)  -->
     <div class="mainContainer">
-        <div class="row">
-            <div class="page-header">
 
-                <h1>Posts  <span class="glyphicon  glyphicon-arrow-down"></span></h1>
+        <div class="homepage" data-bind="visible: page() == 'show.posts'">
+            <div class="row">
+                <div class="page-header">
 
+                    <h1>Posts  <span class="glyphicon  glyphicon-arrow-down"></span></h1>
+
+                </div>
             </div>
-        </div>
 
-        <!--  Display Posts Area (Grid)-->
-        <div class="row" >
-            <div class="col-sm-6" "col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title" id="postTitle"><span class="glyphicon glyphicon-menu-right titleArrow"></span>Panel title</h3>
+            <!--  Display Posts Area (Grid)-->
+            <div class="row HomePageGrid">
+                <div class="col-sm-6" "col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title" id="postTitle"><span class="glyphicon glyphicon-menu-right titleArrow"></span>Panel title</h3>
+                        </div>
+                        <div class="panel-body" id="postId">
+                            Panel content
+                        </div>
+                        <div class="panel-footer" id=" postUsername">Username: <span></span></div>
+                        <div class="panel-footer" id="dateBorder" id="postDate">Date: <span></span></div>
                     </div>
-                    <div class="panel-body" id="postId">
-                        Panel content
-                    </div>
-                    <div class="panel-footer" id=" postUsername">Username: <span></span></div>
-                    <div class="panel-footer" id="dateBorder" id="postDate">Date: <span></span></div>
                 </div>
             </div>
         </div>
+
 
         <!--Modal-->
         <!--      Create New Post    -->
@@ -171,245 +175,248 @@
 
 
         <!--   Create Account Screen     -->
-        <div class="CreateAccount Container">
-            <div class="row">
-                <!--             Header   -->
-                <div class="page-header">
-                    <h1>Create an Account <small> Join the party </small></h1>
-                    <br><a href="#"><small class="pull-right">If you have an account click here to login</small></a>
+        <div class="AddAccount" data-bind="visible: page() == 'account.add'">
+            <div class="CreateAccount Container">
+                <div class="row">
+                    <!--             Header   -->
+                    <div class="page-header">
+                        <h1>Create an Account <small> Join the party </small></h1>
+                        <br><a href="#"><small class="pull-right">If you have an account click here to login</small></a>
+                    </div>
                 </div>
-            </div>
 
-            <!--          Enter User Information  -->
-            <div class="createAccountArea">
-                <div class="col-md-12">
-
-
-                    <!--               First Group     -->
-                    <div class="row">
-                        <div id="AddAccountGroup1">
+                <!--          Enter User Information  -->
+                <div class="createAccountArea">
+                    <div class="col-md-12">
 
 
-                            <!--         Enter UserName           -->
-                            <div class="form-group">
-                                <label for="inputTitle" class="col-lg-2 modal-text control-label">Create Username</label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" required id="CustomerUserName" placeholder="Enter your Username">
-                                    <small class="req">*required</small>
-                                </div>
-                            </div>
-                            <!--         Enter email           -->
-                            <div class="form-group">
-                                <label for="inputTitle" class="col-lg-2 modal-text control-label">Enter Email Address</label>
-                                <div class="col-lg-10">
-                                    <input type="email" class="form-control" required id="CustomerEmail" placeholder="Enter your Email">
-                                    <small class="req">*required</small>
-                                </div>
-                            </div>
+                        <!--               First Group     -->
+                        <div class="row">
+                            <div id="AddAccountGroup1">
 
-
-                        </div>
-                    </div>
-                    <!--                  Second Group  -->
-                    <div class="row">
-                        <div id="AddAccountGroup2">
-                            <!--         Enter Password           -->
-                            <div class="form-group">
-                                <label for="inputTitle" class="col-lg-2 modal-text control-label">Create your Password</label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" required id="CustomerPassword" placeholder="Minimum 7 characters">
-                                    <small class="req">*required</small>
-                                </div>
-                            </div>
-
-                            <!--         Enter 'Verify' Password           -->
-                            <div class="form-group">
-                                <label for="inputTitle" class="col-lg-2 modal-text control-label">Verify your Password</label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" required id="CustomerVerifyPassword" placeholder="Minimum 7 characters">
-                                    <small class="req">*required</small>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!--                 Third Group   -->
-                    <div class="row">
-                        <div id="AddAccountGroup3">
-
-
-                            <!--         Enter 'Twitter' Account           -->
-                            <div class="form-group Link-twitter">
-                                <label for="inputTitle" class="col-lg-2 modal-text control-label">Link your Twitter</label>
-                                <div class="col-lg-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">@</span>
-                                        <input type="text" class="form-control" id="addTwitterUsername" placeholder="Twitter Username" aria-describedby="basic-addon1">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Phone Verification-->
-                            <div class="col-md-12 author-col phone-Verify">
-                                <div class="author-row">
-                                    <div class="form-group">
-                                        <div id="authorTitle">
-                                            <h4 class="modal-text">Phone Verification: </h4>
-                                            <small><p>A 5-Digit Code will be given to you by phone or SMS</p></small>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="row col-md-12">
-                                                <div class="col-md-4">
-                                                    <h5 for="textArea" class=" modal-text control-label">Your Phone Number </h5>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" required id="InputPhoneNumber" placeholder="XXX-XXX-XXXX">
-                                                    <small class="req">*required</small>
-                                                </div>
-
-                                            </div>
-                                            <div class="row col-md-12 btnVerify">
-                                                <div class="col-md-3">
-                                                    <button type="button" class="btn btn-primary">Verify by Phone</button>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <button type="button" class="btn btn-primary">Verify by SMS</button>
-                                                </div>
-                                            </div>
-
-                                            <div class="row col-md-12">
-                                                <div class="col-md-4">
-                                                    <h5 for="verificationCode" class=" modal-text control-label">Verification Code: </h5>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" required id="InputVerifyCode" placeholder="?????">
-                                                    <small class="req">*required</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                    <!--                 Buttons   -->
-                    <div class="row">
-                        <div class="form-group AddAccountButtons">
-                            <button type="button" class="btn btn-success AddAccountCreateAccount"><span class="glyphicon glyphicon-ok"></span> Create Account</button>
-
-                            <button type="button" class="btn btn-danger AddAccountCloseBtn" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    <div class="row foot">
-                    </div>
-                    <!--Buttons Ended Above-->
-                    <!--                 End create account page   -->
-                </div>
-            </div>
-
-
-
-            <!--  Login Screen Modal  -->
-            <!-- Modal -->
-            <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Login to your 'Reddits Neighbor' Account</h4>
-                        </div>
-                        <div class="modal-body">
-                                <div class="loginContainer">
 
                                 <!--         Enter UserName           -->
-                                <div class="row">
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-lg-2 modal-text control-label">Username</label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" required id="LoginUserName" placeholder="Enter your Username">
-                                            <small class="req">*required</small>
-                                        </div>
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Create Username</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" required id="CustomerUserName" placeholder="Enter your Username">
+                                        <small class="req">*required</small>
+                                    </div>
+                                </div>
+                                <!--         Enter email           -->
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Enter Email Address</label>
+                                    <div class="col-lg-10">
+                                        <input type="email" class="form-control" required id="CustomerEmail" placeholder="Enter your Email">
+                                        <small class="req">*required</small>
                                     </div>
                                 </div>
 
+
+                            </div>
+                        </div>
+                        <!--                  Second Group  -->
+                        <div class="row">
+                            <div id="AddAccountGroup2">
                                 <!--         Enter Password           -->
-                                <div class="row">
-                                    <div class="form-group">
-                                        <label for="inputTitle" class="col-lg-2 modal-text control-label">Password</label>
-                                        <div class="col-lg-10">
-                                            <input type="password" class="form-control" required id="CustomerPassword" placeholder="Minimum 7 characters">
-                                            <small class="req">*required</small>
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Create your Password</label>
+                                    <div class="col-lg-10">
+                                        <input type="password" class="form-control" required id="CustomerPassword" placeholder="Minimum 7 characters">
+                                        <small class="req">*required</small>
+                                    </div>
+                                </div>
+
+                                <!--         Enter 'Verify' Password           -->
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Verify your Password</label>
+                                    <div class="col-lg-10">
+                                        <input type="password" class="form-control" required id="CustomerVerifyPassword" placeholder="Minimum 7 characters">
+                                        <small class="req">*required</small>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!--                 Third Group   -->
+                        <div class="row">
+                            <div id="AddAccountGroup3">
+
+
+                                <!--         Enter 'Twitter' Account           -->
+                                <div class="form-group Link-twitter">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Link your Twitter</label>
+                                    <div class="col-lg-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">@</span>
+                                            <input type="text" class="form-control" id="addTwitterUsername" placeholder="Twitter Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                 </div>
+
+                                <!--Phone Verification-->
+                                <div class="col-md-12 author-col phone-Verify">
+                                    <div class="author-row">
+                                        <div class="form-group">
+                                            <div id="authorTitle">
+                                                <h4 class="modal-text">Phone Verification: </h4>
+                                                <small><p>A 5-Digit Code will be given to you by phone or SMS</p></small>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="row col-md-12">
+                                                    <div class="col-md-4">
+                                                        <h5 for="textArea" class=" modal-text control-label">Your Phone Number </h5>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" required id="InputPhoneNumber" placeholder="XXX-XXX-XXXX">
+                                                        <small class="req">*required</small>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row col-md-12 btnVerify">
+                                                    <div class="col-md-3">
+                                                        <button type="button" class="btn btn-primary">Verify by Phone</button>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button" class="btn btn-primary">Verify by SMS</button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row col-md-12">
+                                                    <div class="col-md-4">
+                                                        <h5 for="verificationCode" class=" modal-text control-label">Verification Code: </h5>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" required id="InputVerifyCode" placeholder="?????">
+                                                        <small class="req">*required</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                             </div>
                         </div>
 
-                        <div class="modal-footer">
-                            <!--         Recover Username/Password           -->
-                            <div class="recover col-lg-12">
-                                <div class="row">
-                                    <div class="form-group">
-                                        <a href="mailto:jeff@jeffwarddevelopment.com"><h4 for="forgotUsername-Password" class="col-lg-12 modal-text control-label">Forgot Password or Username?</h4></a>
+                        <!--                 Buttons   -->
+                        <div class="row">
+                            <div class="form-group AddAccountButtons">
+                                <button type="button" class="btn btn-success AddAccountCreateAccount"><span class="glyphicon glyphicon-ok"></span> Create Account</button>
 
-                                    </div>
-                                </div>
-                                <!--         Create an Account          -->
-                                <div class="row CreateAccountBtn">
-                                    <div class="form-group">
-                                        <p><a class="btn btn-success btn-sm" href="#" role="button">Create an Account</a></p>
-                                    </div>
-                                </div>
+                                <button type="button" class="btn btn-danger AddAccountCloseBtn" data-dismiss="modal">Close</button>
                             </div>
-                            <button type="button" class="btn btn-primary">Login</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         </div>
+                        <div class="row foot">
+                        </div>
+                        <!--Buttons Ended Above-->
+                        <!--                 End create account page   -->
                     </div>
                 </div>
             </div>
-
-            
-            <!--        Sync Twitter Modal    -->
-            <!-- Modal -->
-            <div class="modal fade" id="linkTwitterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title center" id="myModalLabel">Link your Twitter Account</h4>
-                        </div>
-                        <div class="modal-body">
-                         
-                            <!--         Enter 'Twitter' Account           -->
-                            <div class="form-group Link-twitter">
-                                <label for="inputTitle" class="col-lg-4 modal-text control-label">Link your Twitter</label>
-                                <div class="col-lg-3">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1">@</span>
-                                        <input type="text" class="form-control" id="addTwitterUsername" placeholder="Twitter Username" aria-describedby="basic-addon1">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                          
-                            <button type="button" class="btn btn-primary">Link Twitter!</button>
-                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-<!-- End HTML -->
         </div>
+
+
+        <!--  Login Screen Modal  -->
+        <!-- Modal -->
+        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Login to your 'Reddits Neighbor' Account</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="loginContainer">
+
+                            <!--         Enter UserName           -->
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Username</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" required id="LoginUserName" placeholder="Enter your Username">
+                                        <small class="req">*required</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--         Enter Password           -->
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="inputTitle" class="col-lg-2 modal-text control-label">Password</label>
+                                    <div class="col-lg-10">
+                                        <input type="password" class="form-control" required id="CustomerPassword" placeholder="Minimum 7 characters">
+                                        <small class="req">*required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <!--         Recover Username/Password           -->
+                        <div class="recover col-lg-12">
+                            <div class="row">
+                                <div class="form-group">
+                                    <a href="mailto:jeff@jeffwarddevelopment.com"><h4 for="forgotUsername-Password" class="col-lg-12 modal-text control-label">Forgot Password or Username?</h4></a>
+
+                                </div>
+                            </div>
+                            <!--         Create an Account          -->
+                            <div class="row CreateAccountBtn">
+                                <div class="form-group">
+                                    <p><a class="btn btn-success btn-sm" href="#" role="button">Create an Account</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--        Sync Twitter Modal    -->
+        <!-- Modal -->
+        <div class="modal fade" id="linkTwitterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title center" id="myModalLabel">Link your Twitter Account</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <!--         Enter 'Twitter' Account           -->
+                        <div class="form-group Link-twitter">
+                            <label for="inputTitle" class="col-lg-4 modal-text control-label">Link your Twitter</label>
+                            <div class="col-lg-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">@</span>
+                                    <input type="text" class="form-control" id="addTwitterUsername" placeholder="Twitter Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-primary">Link Twitter!</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- End HTML -->
+
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>

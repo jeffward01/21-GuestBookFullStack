@@ -37,7 +37,7 @@ function myViewModel() {
     var self = this;
 
     //page management
-    self.page = ko.observable('show-posts');
+    self.page = ko.observable('show.posts');
     
     //Login State management
     self.login = ko.observable('logged-out')
@@ -78,9 +78,13 @@ function myViewModel() {
     
     //Page navigaiton
     self.AddAccount = function(){
-        self.page('add-account');
-        
+        self.page('account.add');    
     }
+    
+    self.LoggedIn = function(){
+        self.login('logged-in');
+    }
+    
     
     
     
@@ -131,3 +135,62 @@ function myViewModel() {
 //};
 
 ko.applyBindings(new myViewModel());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//jQuery page Flow 
+$(document).ready(function(){
+    
+//    
+//    //Pages
+//    var AccountsPage = $('.CreateAccount');
+//    var HomePageHeader = $('.HomePageHeader');
+//    var HomePageGrid = $('.HomePageGrid');
+//    
+//    //Buttons
+//    var LeavePostBtn = $('#leavePostBtn');
+//    var LinkTwitterBtn = $('.LinkTwitterBtn');
+//    var AddAccountBtn = $('.AddAccountBtn');
+//    
+//    
+//    
+//    
+//    
+//    //Page Start
+//    $(LeavePostBtn).hide();
+//    $(AccountsPage).hide();
+//    $(LinkTwitterBtn).hide();
+//    
+//    
+//    //Create an Account Button Click
+//    $(AddAccountBtn).on("click", function(){
+//        alert("test");
+//      
+//        $(HomePageHeader).fadeOut();
+//        $(HomePageGrid).fadeOut();
+//        $(AccountsPage).show();
+//      $('.CreateAccount').fadeIn();
+//        $('.createAccountArea').fadeIn();
+        
+    });
+   
+    
+    
+    
+}); //End Ready
+
+
