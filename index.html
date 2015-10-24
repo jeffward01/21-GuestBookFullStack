@@ -67,7 +67,7 @@
                     <div class="panel-body" id="postId">
                         Panel content
                     </div>
-                    <div class="panel-footer" id=" postAuthor">Author: <span></span></div>
+                    <div class="panel-footer" id=" postUsername">Username: <span></span></div>
                     <div class="panel-footer" id="dateBorder" id="postDate">Date: <span></span></div>
                 </div>
             </div>
@@ -85,34 +85,49 @@
                     </div>
                     <div class="modal-body">
                         <div class="newPostContainer">
-                            <form class="form-horizontal">
-                                <fieldset>
 
-                                    <!--                    Group 1                -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="inputTitle" class="col-lg-2 modal-text control-label">Post Title</label>
-                                            <div class="col-lg-10">
-                                                <input type="text" class="form-control" required id="InputFirstName" placeholder="Enter your Title">
-                                                <small class="req">*required</small>
+                            <fieldset>
 
-                                            </div>
+                                <!--                    Group 1                -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="inputTitle" class="col-lg-2 modal-text control-label">Post Title</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" required id="InputFirstName" placeholder="Enter your Title">
+                                            <small class="req">*required</small>
+
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="textArea" class="col-lg-2 modal-text control-label">Your Post </label>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" rows="3" id="textArea" required placeholder="A nice yak shaving story goes here..."></textarea>
+                                            <small class="req">*required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!--                                 Author Name   -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="authorTitle">
                                         <div class="form-group">
-                                            <label for="textArea" class="col-lg-2 modal-text control-label">Your Post </label>
+                                            <label for="inputTitle" class="col-lg-2 modal-text control-label">Username</label>
                                             <div class="col-lg-10">
-                                                <textarea class="form-control" rows="3" id="textArea" required placeholder="A nice yak shaving story goes here..."></textarea>
+                                                <input type="text" class="form-control" required id="InputAuthor" placeholder="Enter your Username">
                                                 <small class="req">*required</small>
                                             </div>
                                         </div>
                                     </div>
+
                                     <!--Keep Sepeartion Looking Good-->
                                     <div class="col-md-12 author-col">
                                         <div class="author-row">
                                             <div class="form-group">
                                                 <div id="authorTitle">
                                                     <h4 class="modal-text">Phone Verification: </h4>
-                                                     <small><p>A 5-Digit Code will be given to you by phone or SMS</p></small>
+                                                    <small><p>A 5-Digit Code will be given to you by phone or SMS</p></small>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="row col-md-12">
@@ -123,7 +138,7 @@
                                                             <input type="text" class="form-control" required id="InputPhoneNumber" placeholder="XXX-XXX-XXXX">
                                                             <small class="req">*required</small>
                                                         </div>
-                                                       
+
                                                     </div>
                                                     <div class="row col-md-12 btnVerify">
                                                         <div class="col-md-3">
@@ -143,13 +158,7 @@
                                                             <small class="req">*required</small>
                                                         </div>
                                                     </div>
-
-
                                                 </div>
-
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -173,53 +182,34 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <!--                      Third Captcha     -->
+                                <!--                      Third Captcha     -->
 
+                                <div class="modal-footer">
 
-                                </fieldset>
-                            </form>
+                                    <div class="form-group">
 
-
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Submit Post</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-
-                        <div class="form-group">
-
-
-
-
-
-
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Submit Post</button>
-                        </div>
-
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
+    </div>
 
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/knockout/dist/knockout.js"></script>
+    <script src="bower_components/knockout-mapping/knockout.mapping.js"></script>
 
-
-
-
-
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/knockout/dist/knockout.js"></script>
-        <script src="bower_components/knockout-mapping/knockout.mapping.js"></script>
-
-        <script src="js/app.js"></script>
-        <script src="js/pageFlow.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pageFlow.js"></script>
 
 
 </body>
