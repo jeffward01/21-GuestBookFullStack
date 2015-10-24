@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  
     <link rel="stylesheet" href="css/main.css" />
 </head>
 
@@ -17,11 +19,9 @@
             <div class="container-fluid">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <!-- <li role="presentation"><a href="#">Profile</a></li>
-                    <li role="presentation"><a href="#">Messages</a></li> -->
+                    <li role="presentation"><a href="#"><span class="glyphicon-user glyphicon"></span>Twitter Profile</a></li>
+                  <!--  <li role="presentation"><a href="#">Messages</a></li> -->
                 </ul>
-
-
             </div>
             <!-- /.container-fluid -->
         </nav>
@@ -42,6 +42,7 @@
                 <h1>Reddit's Neighbor</h1>
                 <p>A place to leave what you have to say</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button" id="leavePostBtn" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon pencil glyphicon-pencil"></span>Leave a post</a></p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button" id="loginTwitterBtn"><span class="glyphicon-cloud-upload glyphicon"></span>Login via Twitter</a></p>
             </div>
         </div>
     </div>
@@ -203,7 +204,7 @@
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+   
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/knockout/dist/knockout.js"></script>
     <script src="bower_components/knockout-mapping/knockout.mapping.js"></script>
