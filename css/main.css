@@ -92,3 +92,75 @@ html, body {
 #InputAuthor{
     margin-right: -100px;
 }
+
+
+
+/*Create Account page*/
+
+.createAccountArea{
+    margin-top: 30px;
+    width: 60%;
+    margin: 0 auto;
+}
+ .createAccountArea input, .createAccountArea input {
+    width: 300px;
+}
+
+#addTwitterUsername{
+    width: 270px;
+}
+
+#AddAccountGroup1{
+    margin-bottom: 40px;
+}
+
+#AddAccountGroup2{
+    padding-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#AddAccountGroup3{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.AddAccountButtons{
+    margin-top: 40px;
+    margin-left: 400px;
+}
+.AddAccountCloseBtn{
+    margin-left: 10px;
+}
+.foot{
+    margin-top: 200px;
+
+}
+.phone-Verify{
+    margin-top: 60px;
+}
+.Link-twitter{
+    margin-top: 30px;
+    padding-top: 20px;
+}
+.recover{
+    padding-top: 20px;
+    margin: 0 auto;
+    text-align: center;s
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-footer{
+    margin-top: 20px;
+
+}
+
+.CreateAccountBtn{
+    margin-top: 20px;
+}
+
+
+
+
+
