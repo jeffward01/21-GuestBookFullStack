@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 <ul class="nav nav-pills">
                     <li role="presentation" data-bind="click: $root.Home"class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a data-bind="click: $root.AddAccount" class="AddAccountBtn" href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
+                    <li role="presentation"><a  class="AddAccountBtn" data-bind="click: $root.AddAccount"  href="#"><span class="glyphicon-user glyphicon"></span> Create an Account</a></li>
                     <li data-bind="visible: login() == 'logged.in'" class="LinkTwitterBtn" role="presentation"><a href="#" data-toggle="modal" data-target="#linkTwitterModal"><span class="glyphicon glyphicon-refresh"></span> Link your Twitter</a></li>
                 </ul>
             </div>
@@ -181,7 +181,7 @@
                     <!--             Header   -->
                     <div class="page-header">
                         <h1>Create an Account <small> Join the party </small></h1>
-                        <br><a href="#"><small class="pull-right">If you have an account click here to login</small></a>
+                        <br><a data-toggle="modal" data-target="#LoginModal"href="#"><small class="pull-right">If you have an account click here to login</small></a>
                     </div>
                 </div>
 
@@ -369,7 +369,7 @@
                             <!--         Create an Account          -->
                             <div class="row CreateAccountBtn">
                                 <div class="form-group">
-                                    <p><a class="btn btn-success btn-sm" href="#" role="button">Create an Account</a></p>
+                                    <p><a data-bind="click: $root.AddAccount" data-dismiss="modal" class="btn btn-success btn-sm" href="#" role="button">Create an Account</a></p>
                                 </div>
                             </div>
                         </div>
