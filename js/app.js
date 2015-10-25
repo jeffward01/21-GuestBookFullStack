@@ -40,7 +40,7 @@ function myViewModel() {
     self.page = ko.observable('show.posts');
     
     //Login State management
-    self.login = ko.observable('logged-out')
+    self.login = ko.observable('logged.out')
 
     //Blog Posts
     self.posts = ko.observableArray();
@@ -79,6 +79,10 @@ function myViewModel() {
     //Page navigaiton
     self.AddAccount = function(){
         self.page('account.add');    
+    }
+    
+    self.Home = function(){
+        self.page('show.posts');
     }
     
     self.LoggedIn = function(){
