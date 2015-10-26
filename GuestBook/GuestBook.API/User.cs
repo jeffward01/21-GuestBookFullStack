@@ -13,6 +13,7 @@ namespace GuestBook.API
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,7 +27,7 @@ namespace GuestBook.API
         [Required(ErrorMessage="Please provide a Username", AllowEmptyStrings=false)]
         public string Username { get; set; }
 
-        [Required(ErrorMessage ="Please provide a paossword", AllowEmptyStrings =false)]
+        [Required(ErrorMessage ="Please provide a password", AllowEmptyStrings =false)]
         [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         [StringLength(50,MinimumLength =7,ErrorMessage ="Password must be at least 7 characters long")]
         public string Password { get; set; }
@@ -35,18 +36,20 @@ namespace GuestBook.API
         public string ConfirmPassword { get; set; }
         
 
-        [Required(ErrorMessage ="Please provide an Email Address", AllowEmptyStrings =false)]
+        [RegularExpression(@"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", ErrorMessage ="Please provide a valid Email Address")]
         public string EmailAddress { get; set; }
-        [Required(ErrorMessage ="Please provide a phone number", AllowEmptyStrings =false)]
+
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage ="Please provide a Phone Number")]
         public string PhoneNumber { get; set; }
 
         public System.DateTime CreatedDate { get; set; }
+
         public string TwitterHandle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
 
-
+        /*
 
         public void Update(UserModel model)
         {
@@ -63,6 +66,18 @@ namespace GuestBook.API
             ConfirmPassword = model.ConfirmPassword;
 
 
+        }
+        */
+
+        public bool ConfirmPasswords()
+        {
+            if(Password == ConfirmPassword)
+            {
+                Console.WriteLine("Your Password was correct, welcome user.");
+                return true;
+            }
+            Console.WriteLine("Your password was Incorrect");
+            return false;
         }
     }
 }

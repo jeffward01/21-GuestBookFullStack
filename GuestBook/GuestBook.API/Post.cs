@@ -29,6 +29,8 @@ namespace GuestBook.API
     
         public virtual User User { get; set; }
 
+
+        /*
         public void Update(PostModel model)
         {
             //If new Post
@@ -42,5 +44,7 @@ namespace GuestBook.API
             PostId = model.PostId;
 
         }
+
+    */
     }
 }
