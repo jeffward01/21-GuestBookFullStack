@@ -13,19 +13,20 @@
 
 
 
-function UserAccountModel() {
+function UserModel() {
     this.Username = ko.observable();
     this.UserId - ko.observable();
     this.CreatedDate = ko.observable();
     this.Password = ko.observable();
-    this.Email = ko.observable();
-    this.TwitterAccount = ko.observable();
-    this.phoneNumber = ko.observable();
+    this.EmailAddress = ko.observable();
+    this.TwitterHandle = ko.observable();
+    this.PhoneNumber = ko.observable();
 
 }
 
 function PostModel() {
     this.UserId = ko.observable();
+    this.PostId = ko.observable();
     this.PostTitle = ko.observable();
     this.PostContent = ko.observable();
     this.PostDate = ko.observable();
@@ -36,8 +37,9 @@ function PostModel() {
 
 //Begin View Model
 function myViewModel() {
+     var self = this;
     var Code = self.GetSetRandomNumber();
-    var self = this;
+   
 
     //page management
     self.page = ko.observable('show.posts');
@@ -47,7 +49,6 @@ function myViewModel() {
 
     //Blog Posts
     self.posts = ko.observableArray();
-
 
 
     //UserInformation
@@ -108,6 +109,16 @@ function myViewModel() {
 
     }
 
+    
+    self.ShowAllPosts = function(){
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:56499/api/posts/',
+            success: function(data){
+                ko.mapping.fromJS(data, {}, self.posts())
+            }
+        });
+    }
 
 
 

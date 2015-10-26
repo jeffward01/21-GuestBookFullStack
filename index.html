@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="shortcut icon" href="">
 </head>
 
 <body>
@@ -64,15 +64,15 @@
             <!--  Display Posts Area (Grid)-->
             <div class="row HomePageGrid">
                 <div class="col-sm-6" "col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary" data-bind="foreach: posts">
                         <div class="panel-heading">
-                            <h3 class="panel-title" id="postTitle"><span class="glyphicon glyphicon-menu-right titleArrow"></span>Panel title</h3>
+                            <h3 class="panel-title" data-bind="text: PostTitle"id="postTitle"><span class="glyphicon glyphicon-menu-right titleArrow"></span>Panel title</h3>
                         </div>
-                        <div class="panel-body" id="postId">
+                        <div class="panel-body" data-bind="text: PostContent" id="postId">
                             Panel content
                         </div>
                         <div class="panel-footer" id=" postUsername">Username: <span></span></div>
-                        <div class="panel-footer" id="dateBorder" id="postDate">Date: <span></span></div>
+                        <div class="panel-footer" id="dateBorder" data-bind="text: PostDate" id="postDate">Date: <span></span></div>
                     </div>
                 </div>
             </div>
