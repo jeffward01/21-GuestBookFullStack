@@ -15,6 +15,7 @@ namespace GuestBook.API.Models
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
         public string TwitterHandle { get; set; }
+        public int PostCount { get; set; }
 
 
 

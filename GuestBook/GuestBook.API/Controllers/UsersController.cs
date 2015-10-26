@@ -32,7 +32,8 @@ namespace GuestBook.API.Controllers
                 Username = u.Username,
                 Password = u.Password,
                 EmailAddress = u.EmailAddress,
-                PhoneNumber = u.PhoneNumber
+                PhoneNumber = u.PhoneNumber,
+                PostCount = u.Posts.Count
             });
         }
 
