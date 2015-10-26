@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using GuestBook.API;
+using GuestBook.API.Models;
 
 namespace GuestBook.API.Controllers
 {
@@ -18,13 +19,22 @@ namespace GuestBook.API.Controllers
         private GuestBookEntities db = new GuestBookEntities();
 
         // GET: api/Posts
-        public IQueryable<Post> GetPosts()
+        public IQueryable<PostModel> GetPosts()
         {
-            return db.Posts;
+          
+            return db.Posts.Select(p => new PostModel
+            {
+            
+                UserId =p.UserId,
+                PostId = p.PostId,
+                PostTitle = p.PostTitle,
+                PostContent = p.PostContent,
+                PostDate = p.PostDate
+            });
         }
 
         // GET: api/Posts/5
-        [ResponseType(typeof(Post))]
+        [ResponseType(typeof(PostModel)), Route("api/posts/{id}/posts")]
         public async Task<IHttpActionResult> GetPost(int id)
         {
             Post post = await db.Posts.FindAsync(id);
@@ -33,12 +43,26 @@ namespace GuestBook.API.Controllers
                 return NotFound();
             }
 
-            return Ok(post);
+            var posts = db.Posts.Where(p => p.UserId == id);
+
+            if(posts.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(posts.Select(p => new PostModel
+            {
+                UserId = p.UserId,
+                PostId = p.PostId,
+                PostTitle = p.PostTitle,
+                PostContent= p.PostContent,
+                PostDate = p.PostDate
+            }));
         }
 
         // PUT: api/Posts/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutPost(int id, Post post)
+        public async Task<IHttpActionResult> PutPost(int id, PostModel post)
         {
             if (!ModelState.IsValid)
             {
@@ -50,6 +74,13 @@ namespace GuestBook.API.Controllers
                 return BadRequest();
             }
 
+            //Update Customer in the Database
+            var dbPost = db.Posts.Find(id);
+
+            //Update the Database
+            dbPost.Update(post);
+
+            //Modified State
             db.Entry(post).State = EntityState.Modified;
 
             try
@@ -72,34 +103,54 @@ namespace GuestBook.API.Controllers
         }
 
         // POST: api/Posts
-        [ResponseType(typeof(Post))]
-        public async Task<IHttpActionResult> PostPost(Post post)
+        [ResponseType(typeof(PostModel))]
+        public async Task<IHttpActionResult> PostPost(PostModel post)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            //Build New Post
+            var dbPost = new Post();
 
-            db.Posts.Add(post);
+            //Update User with new Post model
+            dbPost.Update(post);
+
+            //Add Post Model to DB
+            db.Posts.Add(dbPost);
+
+            post.PostId = dbPost.PostId;
+
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = post.PostId }, post);
         }
 
         // DELETE: api/Posts/5
-        [ResponseType(typeof(Post))]
+        [ResponseType(typeof(PostModel))]
         public async Task<IHttpActionResult> DeletePost(int id)
         {
+            //Locate Post from Database 
             Post post = await db.Posts.FindAsync(id);
             if (post == null)
             {
                 return NotFound();
             }
 
+
             db.Posts.Remove(post);
             await db.SaveChangesAsync();
 
-            return Ok(post);
+            var postModel = new PostModel
+            {
+                UserId = post.UserId,
+                PostId = post.PostId,
+                PostTitle = post.PostTitle,
+                PostContent = post.PostContent,
+                PostDate = post.PostDate
+            };
+
+            return Ok(postModel);
         }
 
         protected override void Dispose(bool disposing)

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="GuestBookDatabaseModelStoreContainer" CdmEntityContainer="GuestBookEntities">
+  <EntityContainerMapping StorageEntityContainer="GuestBookModelStoreContainer" CdmEntityContainer="GuestBookEntities">
     <EntitySetMapping Name="Posts">
-      <EntityTypeMapping TypeName="GuestBookDatabaseModel.Post">
+      <EntityTypeMapping TypeName="GuestBookModel.Post">
         <MappingFragment StoreEntitySet="Posts">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
@@ -13,7 +13,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="GuestBookDatabaseModel.User">
+      <EntityTypeMapping TypeName="GuestBookModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Username" ColumnName="Username" />

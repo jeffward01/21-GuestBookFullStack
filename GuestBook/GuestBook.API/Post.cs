@@ -9,42 +9,31 @@
 
 namespace GuestBook.API
 {
+    using Models;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
 
     public partial class Post
     {
-        public Nullable<int> UserId { get; set; }
+        public int UserId { get; set; }
         public int PostId { get; set; }
-
-        [Required(ErrorMessage="Please provide a Post Title", AllowEmptyStrings = false)]
         public string PostTitle { get; set; }
-
-        [Required(ErrorMessage = "Please provide Post Content", AllowEmptyStrings = false)]
         public string PostContent { get; set; }
-
-
         public System.DateTime PostDate { get; set; }
     
         public virtual User User { get; set; }
 
-
-        /*
-        public void Update(PostModel model)
+        public void Update(PostModel post)
         {
-            //If new Post
-            if(model.PostId == 0)
+            if(post.PostId == 0)
             {
                 PostDate = DateTime.Now;
             }
 
-            PostTitle = model.PostTitle;
-            PostContent = model.PostContent;
-            PostId = model.PostId;
+            PostId = post.PostId;
+            PostTitle = post.PostTitle;
+            PostContent = post.PostContent;
 
         }
-
-    */
     }
 }

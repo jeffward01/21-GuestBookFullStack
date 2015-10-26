@@ -19,34 +19,21 @@ namespace GuestBook.API.Controllers
     {
         private GuestBookEntities db = new GuestBookEntities();
 
-        /*
-        [System.Web.Mvc.HttpPost]
-        [ValidateAntiForgeryToken]
-        public IHttpActionResult Register(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                using (GuestBookEntities db = new GuestBookEntities())
-                {
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                    ModelState.Clear();
-                    user = null;
-                    Console.WriteLine("Successful Registration!");
-                }
-
-                return Ok(user);
-            }
-        }
-
-    */
 
         // GET: api/Users
         public IQueryable<UserModel> GetUsers()
         {
 
-          
-            return db.Users;
+
+            return db.Users.Select(u => new UserModel
+            {
+                UserId = u.UserId,
+                CreatedDate = u.CreatedDate,
+                Username = u.Username,
+                Password = u.Password,
+                EmailAddress = u.EmailAddress,
+                PhoneNumber = u.PhoneNumber
+            });
         }
 
         // GET: api/Users/5
@@ -54,28 +41,47 @@ namespace GuestBook.API.Controllers
         public IHttpActionResult GetUser(int id)
         {
             User user = db.Users.Find(id);
+
             if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            UserModel modelUser = new UserModel
+            {
+                UserId = user.UserId,
+                CreatedDate = user.CreatedDate,
+                Username = user.Username,
+                Password = user.Password,
+                EmailAddress = user.EmailAddress,
+                PhoneNumber = user.PhoneNumber
+            };
+
+
+
+            return Ok(modelUser);
         }
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutUser(int id, UserModel user)
         {
+            //If not valid
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            //If user is not found
             if (id != user.UserId)
             {
                 return BadRequest();
             }
 
+            //Update User In Database
+            var dbUser = db.Users.Find(id);
+
+            //Updates Entry State in DB
             db.Entry(user).State = EntityState.Modified;
 
             try
@@ -106,8 +112,18 @@ namespace GuestBook.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(user);
+            //Build new User
+            var dbUser = new User();
+
+            //Update User with new Model
+            dbUser.Update(user);
+
+            //Add user to Database
+            db.Users.Add(dbUser);
+
             db.SaveChanges();
+
+            user.UserId = dbUser.UserId;
 
             return CreatedAtRoute("DefaultApi", new { id = user.UserId }, user);
         }
@@ -123,10 +139,35 @@ namespace GuestBook.API.Controllers
                 return NotFound();
             }
 
-            db.Users.Remove(user);
+            //Locate All posts by user
+            var posts = db.Posts.Where(p => p.UserId == user.UserId);
+
+            //Remove all posts by user
+            db.Posts.RemoveRange(posts);
+
+            //Save Changes
             db.SaveChanges();
 
-            return Ok(user);
+            //remove Customer
+            db.Users.Remove(user);
+
+            
+            db.SaveChanges();
+
+            //Return model to USer
+            var userModel = new UserModel
+            {
+                UserId = user.UserId,
+                Username = user.Username,
+                Password = user.Password,
+                EmailAddress = user.EmailAddress,
+                TwitterHandle = user.TwitterHandle,
+                CreatedDate = user.CreatedDate,
+                PhoneNumber = user.PhoneNumber
+
+            };
+
+            return Ok(userModel);
         }
 
         protected override void Dispose(bool disposing)

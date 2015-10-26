@@ -9,10 +9,9 @@
 
 namespace GuestBook.API
 {
+    using Models;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
 
     public partial class User
     {
@@ -23,61 +22,28 @@ namespace GuestBook.API
         }
     
         public int UserId { get; set; }
-
-        [Required(ErrorMessage="Please provide a Username", AllowEmptyStrings=false)]
         public string Username { get; set; }
-
-        [Required(ErrorMessage ="Please provide a password", AllowEmptyStrings =false)]
-        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
-        [StringLength(50,MinimumLength =7,ErrorMessage ="Password must be at least 7 characters long")]
         public string Password { get; set; }
-        [Compare("Password", ErrorMessage ="Confirm password does not match")]
-        [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
-        public string ConfirmPassword { get; set; }
-        
-
-        [RegularExpression(@"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", ErrorMessage ="Please provide a valid Email Address")]
         public string EmailAddress { get; set; }
-
-        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage ="Please provide a Phone Number")]
         public string PhoneNumber { get; set; }
-
         public System.DateTime CreatedDate { get; set; }
-
         public string TwitterHandle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
 
-        /*
-
-        public void Update(UserModel model)
+        public void Update(UserModel user)
         {
-            //If new User
-            if(model.UserId == 0)
+            if(user.UserId == 0)
             {
                 CreatedDate = DateTime.Now;
             }
-            Username = model.Username;
-            Password = model.Password;
-            EmailAddress = model.EmailAddress;
-            PhoneNumber = model.PhoneNumber;
-            TwitterHandle = model.TwitterHandle;
-            ConfirmPassword = model.ConfirmPassword;
+            Username = user.Username;
+            Password = user.Password;
+            EmailAddress = user.EmailAddress;
+            PhoneNumber = user.PhoneNumber;
+            TwitterHandle = user.TwitterHandle;
 
-
-        }
-        */
-
-        public bool ConfirmPasswords()
-        {
-            if(Password == ConfirmPassword)
-            {
-                Console.WriteLine("Your Password was correct, welcome user.");
-                return true;
-            }
-            Console.WriteLine("Your password was Incorrect");
-            return false;
         }
     }
 }

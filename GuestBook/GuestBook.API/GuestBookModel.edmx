@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GuestBookDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GuestBookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Posts">
           <Key>
             <PropertyRef Name="PostId" />
           </Key>
-          <Property Name="UserId" Type="int" />
+          <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PostTitle" Type="varchar" MaxLength="70" Nullable="false" />
           <Property Name="PostContent" Type="varchar" MaxLength="5400" Nullable="false" />
@@ -28,7 +28,7 @@
           <Property Name="TwitterHandle" Type="varchar" MaxLength="128" />
         </EntityType>
         <Association Name="FK__Posts__UserId__1273C1CD">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -39,7 +39,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GuestBookDatabaseModelStoreContainer">
+        <EntityContainer Name="GuestBookModelStoreContainer">
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Posts__UserId__1273C1CD" Association="Self.FK__Posts__UserId__1273C1CD">
@@ -51,12 +51,12 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GuestBookDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GuestBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="PostId" />
           </Key>
-          <Property Name="UserId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PostTitle" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PostContent" Type="String" MaxLength="5400" FixedLength="false" Unicode="false" Nullable="false" />
@@ -77,7 +77,7 @@
           <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__UserId__1273C1CD" FromRole="User" ToRole="Posts" />
         </EntityType>
         <Association Name="FK__Posts__UserId__1273C1CD">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Posts" Type="Self.Post" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -101,9 +101,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GuestBookDatabaseModelStoreContainer" CdmEntityContainer="GuestBookEntities">
+        <EntityContainerMapping StorageEntityContainer="GuestBookModelStoreContainer" CdmEntityContainer="GuestBookEntities">
           <EntitySetMapping Name="Posts">
-            <EntityTypeMapping TypeName="GuestBookDatabaseModel.Post">
+            <EntityTypeMapping TypeName="GuestBookModel.Post">
               <MappingFragment StoreEntitySet="Posts">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
@@ -114,7 +114,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="GuestBookDatabaseModel.User">
+            <EntityTypeMapping TypeName="GuestBookModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

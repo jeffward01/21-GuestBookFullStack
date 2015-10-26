@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GuestBookDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="GuestBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Post">
     <Key>
       <PropertyRef Name="PostId" />
     </Key>
-    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PostTitle" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PostContent" Type="String" MaxLength="5400" FixedLength="false" Unicode="false" Nullable="false" />
@@ -25,7 +25,7 @@
     <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__UserId__1273C1CD" FromRole="User" ToRole="Posts" />
   </EntityType>
   <Association Name="FK__Posts__UserId__1273C1CD">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Posts" Type="Self.Post" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
